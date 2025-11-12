@@ -44,7 +44,7 @@ public class FileUploadService {
         Files.write(filePath, file.getBytes());
 
         // 3. Extract text
-        String extractedText = tika.parseToString(file.getInputStream());
+        //String extractedText = tika.parseToString(file.getInputStream());
 
         // 4. Save to DB
         Resume resume = new Resume();
