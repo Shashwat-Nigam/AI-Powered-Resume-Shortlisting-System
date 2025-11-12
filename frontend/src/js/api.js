@@ -1,0 +1,1 @@
+const BASE_URL = 'http://localhost:8080/api'; async function createJob(job) { const response = await fetch(`${BASE_URL}/jobs`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(job) }); return response.json(); }
