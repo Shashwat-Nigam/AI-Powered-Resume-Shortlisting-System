@@ -1,4 +1,33 @@
 package com.resumeshortlist.resume_shortlist_backend.service;
 
+import com.resumeshortlist.resume_shortlist_backend.entity.JobPosting;
+import com.resumeshortlist.resume_shortlist_backend.entity.User;
+import com.resumeshortlist.resume_shortlist_backend.repository.JobPostingRepository;
+import com.resumeshortlist.resume_shortlist_backend.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
 public class JobPostingService {
+    @Autowired
+    private JobPostingRepository jobPostingRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public JobPosting createJobPosting(JobPosting jobPosting, Long userId) {
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
+
+        jobPosting.setCreatedBy(user);
+        return jobPostingRepository.save(jobPosting);
+    }
+    public List<JobPosting> getAllJobPostings() {
+        return jobPostingRepository.findAll();
+    }
+
 }
+
