@@ -1,862 +1,448 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI-Powered Resume Shortlisting — Demo</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AI-Powered Resume Shortlisting — Demo</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header class="nav-wrap" id="top">
+<!-- NAVBAR -->
+<header class="nav-wrap" id="top">
     <div class="container nav-inner">
-      <a class="brand" href="#top">
-        <img src="images/graphuralogo.png" alt="GRAPHURA Logo" class="logo-img">
-        <div class="brand-content">
-          <div class="brand-text">
-          
-              
-            </span>
-          </div>
-        </div>
-      </a>
-      <nav class="nav" id="nav">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#recent-jobs" class="nav-link">Recent Jobs</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="btn-nav btn-white">Login</button>
-        <button class="btn-nav btn-white">Signup</button>
-        <button class="btn-nav btn-white">View Dashboard</button>
-        <button class="btn-nav btn-gradient">Create Job</button>
-      </div>
-      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">
-       <span class="hamburger"></span>
-      </button>
-    </div>
-  </header>
+        <a class="brand" href="#top">
+            <img src="images/graphuralogo.png" alt="GRAPHURA Logo" class="logo-img">
+            <div class="brand-content">
+                <div class="brand-text">
 
-  <!-- HERO -->
-  <section id="home" class="hero">
+
+                    </span>
+                </div>
+            </div>
+        </a>
+        <nav class="nav" id="nav">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#recent-jobs" class="nav-link">Recent Jobs</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="btn-nav btn-white">Login</button>
+            <button class="btn-nav btn-white">Signup</button>
+            <button class="btn-nav btn-white">View Dashboard</button>
+            <button class="btn-nav btn-gradient">Create Job</button>
+        </div>
+        <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
     <div class="container hero-container" >
 
-      <div class="hero-content">
-        <div class="analyzer-container">
+        <div class="hero-content">
+            <div class="analyzer-container">
 
-          <!-- Blue Header -->
-          <div class="analyzer-header">
-            <span class="header-icon">🤖</span>
-            <span class="header-title">AI Resume Analyzer</span>
-          </div>
-
-          <!-- Main Content Area -->
-          <div class="analyzer-content">
-            <!-- Upload Section -->
-            <div class="upload-section">
-              <h3 class="section-title">Upload Resume</h3>
-              <div class="upload-area" id="uploadArea">
-                <input type="file" id="fileInput" accept=".pdf,.doc,.docx" style="display:none">
-                <div class="upload-placeholder" id="uploadPlaceholder" style="display:none">
-                  <div class="upload-icon">📄</div>
-                  <p>Click to upload or drag and drop</p>
-                  <p class="upload-hint">PDF, DOC, DOCX (Max 10MB)</p>
+                <!-- Blue Header -->
+                <div class="analyzer-header">
+                    <span class="header-icon">🤖</span>
+                    <span class="header-title">AI Resume Analyzer</span>
                 </div>
-                <div class="upload-success" id="uploadSuccess">
-                  <div class="upload-icon">📄</div>
-                  <div class="upload-fname" id="uploadFileName">Sumit_resume.pdf</div>
-                  <div class="upload-size" id="uploadFileSize">Size: 0.10 MB</div>
-                  <div class="upload-status">File uploaded successfully!</div>
-                </div>
-              </div>
 
-              <!-- Job Description Section -->
-              <div class="job-desc">
-                <label for="jobDescription">Job Description</label>
-                <textarea id="jobDescription" rows="5" placeholder="Enter job description here...">We are seeking a skilled Data Scientist to join our team. The ideal candidate should have:
+                <!-- Main Content Area -->
+                <div class="analyzer-content">
+                    <!-- Upload Section -->
+                    <div class="upload-section">
+                        <h3 class="section-title">Upload Resume</h3>
+                        <div class="upload-area" id="uploadArea">
+                            <input type="file" id="fileInput" accept=".pdf,.doc,.docx" style="display:none">
+                            <div class="upload-placeholder" id="uploadPlaceholder" style="display:none">
+                                <div class="upload-icon">📄</div>
+                                <p>Click to upload or drag and drop</p>
+                                <p class="upload-hint">PDF, DOC, DOCX (Max 10MB)</p>
+                            </div>
+                            <div class="upload-success" id="uploadSuccess">
+                                <div class="upload-icon">📄</div>
+                                <div class="upload-fname" id="uploadFileName">Sumit_resume.pdf</div>
+                                <div class="upload-size" id="uploadFileSize">Size: 0.10 MB</div>
+                                <div class="upload-status">File uploaded successfully!</div>
+                            </div>
+                        </div>
+
+                        <!-- Job Description Section -->
+                        <div class="job-desc">
+                            <label for="jobDescription">Job Description</label>
+                            <textarea id="jobDescription" rows="5" placeholder="Enter job description here...">We are seeking a skilled Data Scientist to join our team. The ideal candidate should have:
 
 Key Requirements:
 • Master's or PhD in Data Science, Statistics,</textarea>
-                <select id="roleSelect" aria-label="role-select">
-                  <option>Data Scientist</option>
-                  <option>Software Engineer</option>
-                  <option>Product Manager</option>
-                  <option>Data Analyst</option>
-                  <option>Machine Learning Engineer</option>
-                </select>
-              </div>
+                            <select id="roleSelect" aria-label="role-select">
+                                <option>Data Scientist</option>
+                                <option>Software Engineer</option>
+                                <option>Product Manager</option>
+                                <option>Data Analyst</option>
+                                <option>Machine Learning Engineer</option>
+                            </select>
+                        </div>
 
-              <!-- Analyze Button -->
-              <div class="analyze-row">
-                <button id="analyzeBtn" class="btn primary analyze-btn">
-                  <span class="btn-icon">⚙️</span>
-                  <span>Analyze Resume</span>
-                </button>
-              </div>
+                        <!-- Analyze Button -->
+                        <div class="analyze-row">
+                            <button id="analyzeBtn" class="btn primary analyze-btn">
+                                <span class="btn-icon">⚙️</span>
+                                <span>Analyze Resume</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Section (Initially Hidden) -->
+                    <div class="result-section" id="resultSection" style="display:none">
+                        <div class="result-header">
+                            <span class="result-icon">📊</span>
+                            <span class="result-title">Analysis Results</span>
+                        </div>
+
+                        <div class="result-body">
+                            <div class="left-score">
+                                <div class="big-score" id="overallScore">90<span class="pct">%</span></div>
+                                <div class="small">Overall Match Score</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" id="overallScoreBar" style="width:90%"></div>
+                                </div>
+                            </div>
+
+                            <div class="breakdown">
+                                <h4>Detailed Breakdown:</h4>
+                                <div class="row">
+                                    <span class="row-label">Skills Match</span>
+                                    <span class="row-value" id="skillsScore">69%</span>
+                                    <div class="progress">
+                                        <div class="bar skill" id="skillsBar" style="width:69%"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <span class="row-label">Experience Match</span>
+                                    <span class="row-value" id="expScore">63%</span>
+                                    <div class="progress">
+                                        <div class="bar exp" id="expBar" style="width:63%"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <span class="row-label">Education Match</span>
+                                    <span class="row-value" id="eduScore">83%</span>
+                                    <div class="progress">
+                                        <div class="bar edu" id="eduBar" style="width:83%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="result-divider"/>
+
+                        <div class="result-bottom">
+                            <div class="matched">
+                                <h4>
+                                    <span class="section-icon">✓</span>
+                                    Matched Skills
+                                </h4>
+                                <div class="chips" id="matchedSkills">
+                                    <span class="chip">JavaScript</span>
+                                    <span class="chip">React</span>
+                                    <span class="chip">Git</span>
+                                </div>
+                            </div>
+
+                            <div class="to-develop">
+                                <h4>
+                                    <span class="section-icon warning">⚠</span>
+                                    Skills to Develop
+                                </h4>
+                                <div class="chips" id="skillsToDevelop">
+                                    <span class="chip alt">HTML</span>
+                                    <span class="chip alt">CSS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommendations">
+                            <h4>
+                                <span class="section-icon info">💡</span>
+                                Recommendations
+                            </h4>
+                            <ul id="recommendationsList">
+                                <li>Consider developing skills in: HTML, CSS</li>
+                                <li>Excellent candidate for technical interview</li>
+                                <li>Consider for senior-level position based on skill match</li>
+                            </ul>
+                        </div>
+
+                        <div class="result-actions">
+                            <button class="btn primary" id="downloadBtn">
+                                <span class="btn-icon">⬇️</span>
+                                <span>Download Report</span>
+                            </button>
+                            <button class="btn ghost" id="analyzeAnotherBtn">
+                                <span class="btn-icon">🔄</span>
+                                <span>Analyze Another</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Results Section (Initially Hidden) -->
-            <div class="result-section" id="resultSection" style="display:none">
-              <div class="result-header">
-                <span class="result-icon">📊</span>
-                <span class="result-title">Analysis Results</span>
-              </div>
-
-              <div class="result-body">
-                <div class="left-score">
-                  <div class="big-score" id="overallScore">90<span class="pct">%</span></div>
-                  <div class="small">Overall Match Score</div>
-                  <div class="score-bar">
-                    <div class="score-fill" id="overallScoreBar" style="width:90%"></div>
-                  </div>
-                </div>
-
-                <div class="breakdown">
-                  <h4>Detailed Breakdown:</h4>
-                  <div class="row">
-                    <span class="row-label">Skills Match</span>
-                    <span class="row-value" id="skillsScore">69%</span>
-                    <div class="progress">
-                      <div class="bar skill" id="skillsBar" style="width:69%"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <span class="row-label">Experience Match</span>
-                    <span class="row-value" id="expScore">63%</span>
-                    <div class="progress">
-                      <div class="bar exp" id="expBar" style="width:63%"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <span class="row-label">Education Match</span>
-                    <span class="row-value" id="eduScore">83%</span>
-                    <div class="progress">
-                      <div class="bar edu" id="eduBar" style="width:83%"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr class="result-divider"/>
-
-              <div class="result-bottom">
-                <div class="matched">
-                  <h4>
-                    <span class="section-icon">✓</span>
-                    Matched Skills
-                  </h4>
-                  <div class="chips" id="matchedSkills">
-                    <span class="chip">JavaScript</span>
-                    <span class="chip">React</span>
-                    <span class="chip">Git</span>
-                  </div>
-                </div>
-
-                <div class="to-develop">
-                  <h4>
-                    <span class="section-icon warning">⚠</span>
-                    Skills to Develop
-                  </h4>
-                  <div class="chips" id="skillsToDevelop">
-                    <span class="chip alt">HTML</span>
-                    <span class="chip alt">CSS</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="recommendations">
-                <h4>
-                  <span class="section-icon info">💡</span>
-                  Recommendations
-                </h4>
-                <ul id="recommendationsList">
-                  <li>Consider developing skills in: HTML, CSS</li>
-                  <li>Excellent candidate for technical interview</li>
-                  <li>Consider for senior-level position based on skill match</li>
-                </ul>
-              </div>
-
-              <div class="result-actions">
-                <button class="btn primary" id="downloadBtn">
-                  <span class="btn-icon">⬇️</span>
-                  <span>Download Report</span>
-                </button>
-                <button class="btn ghost" id="analyzeAnotherBtn">
-                  <span class="btn-icon">🔄</span>
-                  <span>Analyze Another</span>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-        </div>
-      </div>
-      <div class="hero-image">
+    </div>
+    </div>
+    <div class="hero-image">
         <img src="images/Aiimage.png" alt="AI Robot analyzing resume" class="hero-illustration">
-      </div>
     </div>
-  </section>
+    </div>
+</section>
 
-  <!-- Features Section -->
+<!-- Features Section -->
 
-  <!-- ABOUT -->
-  <section id="about" class="section about">
+<!-- ABOUT -->
+<section id="about" class="section about">
     <div class="container">
-      <h2>About</h2>
-      <div class="about-grid">
-        <div class="card">
-          <h3>Mission</h3>
-          <p>To help recruiters find best-fit candidates faster by automating resume parsing and delivering unbiased, data-driven shortlists.</p>
-        </div>
-        <div class="card">
-          <h3>Vision</h3>
-          <p>Make hiring efficient and fair — powered by transparent scoring and recruiter-friendly dashboards.</p>
-        </div>
-        <div class="card founder">
-          <h3>Founder</h3>
-          <div class="founder-info">
-            <img src="https://via.placeholder.com/80" alt="Founder" />
-            <div>
-              <strong>Er. Jitendra Attri</strong>
-              <p class="muted">Entrepreneur & Mindset Coach</p>
-              <p class="muted small">B.Tech, PGDM — Ex SPX-USA, Elektromag, Attrico MD & CEO</p>
+        <h2>About</h2>
+        <div class="about-grid">
+            <div class="card">
+                <h3>Mission</h3>
+                <p>To help recruiters find best-fit candidates faster by automating resume parsing and delivering unbiased, data-driven shortlists.</p>
             </div>
-          </div>
+            <div class="card">
+                <h3>Vision</h3>
+                <p>Make hiring efficient and fair — powered by transparent scoring and recruiter-friendly dashboards.</p>
+            </div>
+            <div class="card founder">
+                <h3>Founder</h3>
+                <div class="founder-info">
+                    <img src="https://via.placeholder.com/80" alt="Founder" />
+                    <div>
+                        <strong>Er. Jitendra Attri</strong>
+                        <p class="muted">Entrepreneur & Mindset Coach</p>
+                        <p class="muted small">B.Tech, PGDM — Ex SPX-USA, Elektromag, Attrico MD & CEO</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section services">
+<!-- SERVICES -->
+<section id="services" class="section services">
     <div class="container">
-      <h2>Services</h2>
-      <div class="cards">
-        <article class="service-card">
-          <div class="icon">📄</div>
-          <h3>Resume Parsing</h3>
-          <p>PDF/DOCX/LinkedIn extraction with name, skills, experience, education and projects.</p>
-        </article>
+        <h2>Services</h2>
+        <div class="cards">
+            <article class="service-card">
+                <div class="icon">📄</div>
+                <h3>Resume Parsing</h3>
+                <p>PDF/DOCX/LinkedIn extraction with name, skills, experience, education and projects.</p>
+            </article>
 
-        <article class="service-card">
-          <div class="icon">⚖️</div>
-          <h3>Weighted Scoring</h3>
-          <p>Customizable scoring rubric — format, skills, experience, projects, education, certifications.</p>
-        </article>
+            <article class="service-card">
+                <div class="icon">⚖️</div>
+                <h3>Weighted Scoring</h3>
+                <p>Customizable scoring rubric — format, skills, experience, projects, education, certifications.</p>
+            </article>
 
-        <article class="service-card">
-          <div class="icon">📊</div>
-          <h3>Dashboard & Filters</h3>
-          <p>Ranked candidate view with score filters, export & shortlist management.</p>
-        </article>
+            <article class="service-card">
+                <div class="icon">📊</div>
+                <h3>Dashboard & Filters</h3>
+                <p>Ranked candidate view with score filters, export & shortlist management.</p>
+            </article>
 
-        <article class="service-card">
-          <div class="icon">🔁</div>
-          <h3>Export & Integration</h3>
-          <p>Download CSV/PDF and integrate with HR tools or ATS (via API).</p>
-        </article>
-      </div>
+            <article class="service-card">
+                <div class="icon">🔁</div>
+                <h3>Export & Integration</h3>
+                <p>Download CSV/PDF and integrate with HR tools or ATS (via API).</p>
+            </article>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- FEATURES -->
-  <section id="features" class="section features">
+<!-- FEATURES -->
+<section id="features" class="section features">
     <div class="container">
-      <div class="section-header">
-        <h2>Powerful Features</h2>
-        <p>Discover how our AI-powered resume analyzer can transform your hiring process</p>
-      </div>
-      
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <span>🤖</span>
-          </div>
-          <h3>AI-Powered Analysis</h3>
-          <p>Advanced algorithms analyze resumes with human-like understanding, identifying key skills and experience.</p>
+        <div class="section-header">
+            <h2>Powerful Features</h2>
+            <p>Discover how our AI-powered resume analyzer can transform your hiring process</p>
         </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <span>⚡</span>
-          </div>
-          <h3>Lightning Fast</h3>
-          <p>Process hundreds of resumes in seconds, saving you hours of manual screening time.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <span>🎯</span>
-          </div>
-          <h3>Smart Matching</h3>
-          <p>Intelligent matching of candidate skills with job requirements for better hiring decisions.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <span>📊</span>
-          </div>
-          <h3>Detailed Reports</h3>
-          <p>Comprehensive analytics and insights to help you make data-driven hiring decisions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section contact">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🤖</span>
+                </div>
+                <h3>AI-Powered Analysis</h3>
+                <p>Advanced algorithms analyze resumes with human-like understanding, identifying key skills and experience.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>⚡</span>
+                </div>
+                <h3>Lightning Fast</h3>
+                <p>Process hundreds of resumes in seconds, saving you hours of manual screening time.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🎯</span>
+                </div>
+                <h3>Smart Matching</h3>
+                <p>Intelligent matching of candidate skills with job requirements for better hiring decisions.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>📊</span>
+                </div>
+                <h3>Detailed Reports</h3>
+                <p>Comprehensive analytics and insights to help you make data-driven hiring decisions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
     <div class="container contact-grid">
-      <div>
-        <h2>Contact</h2>
-        <p>Get a demo or discuss integration and pricing.</p>
-        <ul class="contact-info">
-          <li><strong>Email:</strong> hello@resumeshortlist.ai</li>
-          <li><strong>Phone:</strong> +91 98765 43210</li>
-          <li><strong>Address:</strong> 123, Industrial Area, Delhi, India</li>
-        </ul>
+        <div>
+            <h2>Contact</h2>
+            <p>Get a demo or discuss integration and pricing.</p>
+            <ul class="contact-info">
+                <li><strong>Email:</strong> hello@resumeshortlist.ai</li>
+                <li><strong>Phone:</strong> +91 98765 43210</li>
+                <li><strong>Address:</strong> 123, Industrial Area, Delhi, India</li>
+            </ul>
 
-        <div class="map">
-          <!-- Google Maps embed placeholder: replace src with your maps embed link -->
-          <iframe
-            title="Office location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.123456789!2d77.0!3d28.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMDAnMDIuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
-            allowfullscreen="" loading="lazy"></iframe>
+            <div class="map">
+                <!-- Google Maps embed placeholder: replace src with your maps embed link -->
+                <iframe
+                        title="Office location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.123456789!2d77.0!3d28.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMDAnMDIuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
-      </div>
 
-      <form id="contactForm" class="contact-form" novalidate>
-        <label>
-          Name
-          <input type="text" id="cf-name" required />
-        </label>
-        <label>
-          Email
-          <input type="email" id="cf-email" required />
-        </label>
-        <label>
-          Message
-          <textarea id="cf-message" rows="6" required></textarea>
-        </label>
-        <div class="form-actions">
-          <button type="submit" class="btn primary">Send Message</button>
-          <button type="reset" class="btn ghost">Reset</button>
-        </div>
-        <div id="formMsg" class="form-msg" aria-live="polite"></div>
-      </form>
+        <form id="contactForm" class="contact-form" novalidate>
+            <label>
+                Name
+                <input type="text" id="cf-name" required />
+            </label>
+            <label>
+                Email
+                <input type="email" id="cf-email" required />
+            </label>
+            <label>
+                Message
+                <textarea id="cf-message" rows="6" required></textarea>
+            </label>
+            <div class="form-actions">
+                <button type="submit" class="btn primary">Send Message</button>
+                <button type="reset" class="btn ghost">Reset</button>
+            </div>
+            <div id="formMsg" class="form-msg" aria-live="polite"></div>
+        </form>
     </div>
-  </section>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+<!-- FOOTER -->
+<footer class="footer">
     <div class="container footer-grid">
-      <div>© <span id="year"></span> ResumeShortlist • All rights reserved.</div>
-      <div class="socials">
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-        <a href="#" aria-label="Twitter">Twitter</a>
-        <a href="#" aria-label="Contact">Contact</a>
-      </div>
+        <div>© <span id="year"></span> ResumeShortlist • All rights reserved.</div>
+        <div class="socials">
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+            <a href="#" aria-label="Contact">Contact</a>
+        </div>
     </div>
-  </footer>
+</footer>
 
-  <!-- Login/Signup Modals -->
-  <div class="modal-overlay" id="authModalOverlay">
+<!-- Login/Signup Modals -->
+<div class="modal-overlay" id="authModalOverlay">
     <!-- Login Form -->
     <div class="modal" id="loginModal">
-      <button class="close-modal" aria-label="Close modal">&times;</button>
-      <div class="modal-content">
-        <h2>Welcome Back</h2>
-        <p class="modal-subtitle">Log in to your account</p>
-        <form id="loginForm" class="auth-form">
-          <div class="form-group">
-            <input type="email" id="loginEmail" required placeholder="Email Address">
-            <label for="loginEmail">Email</label>
-          </div>
-          <div class="form-group">
-            <input type="password" id="loginPassword" required placeholder="••••••••">
-            <label for="loginPassword">Password</label>
-          </div>
-          <div class="form-options">
-            <label class="remember-me">
-              <input type="checkbox" id="rememberMe">
-              <span>Remember me</span>
-            </label>
-            <a href="#" class="forgot-password">Forgot password?</a>
-          </div>
-          <button type="submit" class="btn btn-primary">Log In</button>
-          <p class="switch-form">
-            Don't have an account? <a href="#" class="switch-to-signup">Sign up</a>
-          </p>
-        </form>
-        <div class="divider">
-          <span>or</span>
+        <button class="close-modal" aria-label="Close modal">&times;</button>
+        <div class="modal-content">
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Log in to your account</p>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" required placeholder="Email Address">
+                    <label for="loginEmail">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                    <label for="loginPassword">Password</label>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary">Log In</button>
+                <p class="switch-form">
+                    Don't have an account? <a href="#" class="switch-to-signup">Sign up</a>
+                </p>
+            </form>
+            <div class="divider">
+                <span>or</span>
+            </div>
+            <div class="social-login">
+                <button class="btn btn-google">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+                        <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+                        <path fill="currentColor" d="M5.84 13.1a6.9 6.9 0 01-.36-2.1c0-.73.13-1.43.36-2.1V6.06H2.18A11.86 11.86 0 000 11.99c0 1.92.46 3.73 1.24 5.33l3.6-2.22z" fill="#FBBC05"></path>
+                        <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+                    </svg>
+                    Continue with Google
+                </button>
+            </div>
         </div>
-        <div class="social-login">
-          <button class="btn btn-google">
-            <svg viewBox="0 0 24 24" width="20" height="20">
-              <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
-              <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
-              <path fill="currentColor" d="M5.84 13.1a6.9 6.9 0 01-.36-2.1c0-.73.13-1.43.36-2.1V6.06H2.18A11.86 11.86 0 000 11.99c0 1.92.46 3.73 1.24 5.33l3.6-2.22z" fill="#FBBC05"></path>
-              <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
-            </svg>
-            Continue with Google
-          </button>
-        </div>
-      </div>
     </div>
 
     <!-- Signup Form -->
     <div class="modal" id="signupModal" style="display: none;">
-      <button class="close-modal" aria-label="Close modal">&times;</button>
-      <div class="modal-content">
-        <h2>Create Account</h2>
-        <p class="modal-subtitle">Get started with your free account</p>
-        <form id="signupForm" class="auth-form">
-          <div class="form-group">
-            <input type="text" id="signupName" required placeholder="Full Name">
-            <label for="signupName">Full Name</label>
-          </div>
-          <div class="form-group">
-            <input type="email" id="signupEmail" required placeholder="Email Address">
-            <label for="signupEmail">Email</label>
-          </div>
-          <div class="form-group">
-            <input type="password" id="signupPassword" required placeholder="••••••••">
-            <label for="signupPassword">Password</label>
-          </div>
-          <div class="form-group">
-            <input type="password" id="confirmPassword" required placeholder="••••••••">
-            <label for="confirmPassword">Confirm Password</label>
-          </div>
-          <div class="form-group terms">
-            <input type="checkbox" id="terms" required>
-            <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-          </div>
-          <button type="submit" class="btn btn-primary">Create Account</button>
-          <p class="switch-form">
-            Already have an account? <a href="#" class="switch-to-login">Log in</a>
-          </p>
-        </form>
-      </div>
+        <button class="close-modal" aria-label="Close modal">&times;</button>
+        <div class="modal-content">
+            <h2>Create Account</h2>
+            <p class="modal-subtitle">Get started with your free account</p>
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <input type="text" id="signupName" required placeholder="Full Name">
+                    <label for="signupName">Full Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="signupEmail" required placeholder="Email Address">
+                    <label for="signupEmail">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="signupPassword" required placeholder="••••••••">
+                    <label for="signupPassword">Password</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" required placeholder="••••••••">
+                    <label for="confirmPassword">Confirm Password</label>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+                <p class="switch-form">
+                    Already have an account? <a href="#" class="switch-to-login">Log in</a>
+                </p>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
 
-  <style>
-    /* Features Section */
-    .features {
-      padding: 80px 0;
-      background-color: #f9fafb;
-    }
-    
-    .section-header {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 50px;
-    }
-    
-    .section-header h2 {
-      font-size: 2.5rem;
-      color: #1f2937;
-      margin-bottom: 1rem;
-    }
-    
-    .section-header p {
-      color: #6b7280;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .feature-card {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-    
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1.25rem;
-    }
-    
-    .feature-card h3 {
-      font-size: 1.25rem;
-      color: #111827;
-      margin-bottom: 0.75rem;
-    }
-    
-    .feature-card p {
-      color: #4b5563;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
 
-    /* Hero Layout */
-    .hero-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px 40px;
-    }
-
-    .hero-content {
-      flex: 1;
-      min-width: 0;
-      max-width: 600px;
-    }
-
-    .hero-image {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 300px;
-    }
-
-    .hero-illustration {
-      max-width: 100%;
-      height: auto;
-      max-height: 500px;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Analyzer Container */
-    .analyzer-container {
-      background: linear-gradient(90deg, #b4ccdd 0%, #fce4ec 100%);
-      border-radius: 12px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      width: 100%;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 1024px) {
-      .hero-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-      }
-      
-      .hero-content {
-        width: 100%;
-        max-width: 100%;
-      }
-      
-      .hero-image {
-        margin-top: 40px;
-        width: 100%;
-      }
-      
-      .hero-illustration {
-        max-height: 400px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-container {
-        padding: 15px;
-        gap: 30px;
-      }
-      
-      .analyzer-container {
-        border-radius: 10px;
-      }
-    }
-
-    /* Modal Styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal {
-      background: white;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 420px;
-      margin: 20px;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .modal-overlay.active .modal {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      font-size: 28px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #6b7280;
-      padding: 4px 8px;
-      border-radius: 50%;
-      transition: all 0.2s;
-    }
-
-    .close-modal:hover {
-      background-color: #f3f4f6;
-      color: #4b5563;
-    }
-
-    .modal-content {
-      padding: 32px;
-    }
-
-    .modal h2 {
-      margin: 0 0 4px;
-      color: #111827;
-      font-size: 24px;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .modal-subtitle {
-      color: #6b7280;
-      text-align: center;
-      margin: 0 0 24px;
-      font-size: 14px;
-    }
-
-    /* Form Styles */
-    .auth-form {
-      margin-top: 24px;
-    }
-
-    .form-group {
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 12px 6px;
-      font-size: 14px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      background-color: #f9fafb;
-      transition: all 0.2s;
-    }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-      background-color: white;
-    }
-
-    .form-group label {
-      position: absolute;
-      left: 12px;
-      top: 12px;
-      color: #9ca3af;
-      font-size: 14px;
-      pointer-events: none;
-      transition: all 0.2s;
-      background: white;
-      padding: 0 4px;
-      transform-origin: left center;
-    }
-
-    .form-group input:focus + label,
-    .form-group input:not(:placeholder-shown) + label {
-      transform: translateY(-29px) scale(0.85);
-      color: #3b82f6;
-    }
-
-    .form-options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 16px 0 24px;
-      font-size: 14px;
-    }
-
-    .remember-me {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      color: #4b5563;
-    }
-
-    .remember-me input {
-      margin-right: 8px;
-    }
-
-    .forgot-password {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .forgot-password:hover {
-      text-decoration: underline;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background-color: #3b82f6;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: #2563eb;
-    }
-
-    .switch-form {
-      text-align: center;
-      margin-top: 20px;
-      color: #6b7280;
-      font-size: 14px;
-    }
-
-    .switch-form a {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .switch-form a:hover {
-      text-decoration: underline;
-    }
-
-    .divider {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      margin: 24px 0;
-      color: #9ca3af;
-      font-size: 14px;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .divider::before {
-      margin-right: 16px;
-    }
-
-    .divider::after {
-      margin-left: 16px;
-    }
-
-    .social-login {
-      margin-top: 24px;
-    }
-
-    .btn-google {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background-color: white;
-      border: 1px solid #d1d5db;
-      color: #4b5563;
-      font-weight: 500;
-    }
-
-    .btn-google:hover {
-      background-color: #f9fafb;
-      border-color: #9ca3af;
-    }
-
-    .terms {
-      margin-top: 20px;
-      font-size: 13px;
-      color: #6b7280;
-      line-height: 1.5;
-    }
-
-    .terms a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
-
-    .terms a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 480px) {
-      .modal-content {
-        padding: 24px 20px;
-      }
-      
-      .modal {
-        margin: 16px;
-      }
-      
-      .form-options {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      
-      .forgot-password {
-        margin-top: 8px;
-      }
-    }
-  </style>
-
-  <script>
+<script>
     // DOM Elements
     const authModalOverlay = document.getElementById('authModalOverlay');
     const featuresLink = document.querySelector('a[href="#features"]');
@@ -973,8 +559,8 @@ Key Requirements:
       console.log('Signup form submitted');
       // closeModal();
     });
-  </script>
+</script>
 
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
