@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI - AI-Powered Resume Shortlisting</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="image/graphuralogo.png" alt="Graphura Logo" class="logo-img">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active text-decoration-none" style="text-decoration: none;">Home</a></li>
+                <li><a href="#about" class="nav-link text-decoration-none" style="text-decoration: none;">About Us</a></li>
+                <li><a href="#features" class="nav-link text-decoration-none" style="text-decoration: none;">Features</a></li>
+                <li><a href="#contact" class="nav-link text-decoration-none" style="text-decoration: none;">Contact</a></li>
+                <li><a href="#" class="nav-link btn-login text-decoration-none" style="text-decoration: none;" onclick="openLogin(); return false;">Login/Sign up</a></li>
+                <li><a href="recruiter.html" class="nav-link btn-recruiter text-decoration-none" style="text-decoration: none;">Recruiter</a></li>
+                
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>AI Resume Checker: Get your resume score now.</h1>
+                <p>Streamline your hiring process with our advanced AI technology that analyzes and ranks resumes in seconds.</p>
+                <div class="cta-buttons">
+                    <a href="#features" class="btn btn-primary">Learn More</a>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="image/Aiimage.png" alt="AI Resume Analysis">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Revolutionizing the recruitment process with cutting-edge AI technology.</p>
+            </div>
+            <div class="about-cards">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide innovative AI solutions that transform the recruitment process and help companies find the best talent efficiently.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become the global leader in AI-powered recruitment solutions, making hiring faster, fairer, and more effective.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Our Approach</h3>
+                    <p>We combine cutting-edge AI technology with deep industry expertise to deliver exceptional recruitment solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Features</h2>
+                <p>Powerful tools to streamline your hiring process</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Processing</h3>
+                    <p>Process hundreds of resumes in seconds with our AI-powered system.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Smart Ranking</h3>
+                    <p>Get candidates ranked based on job requirements and skills match.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Your data is encrypted and protected with enterprise-grade security.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Advanced Search</h3>
+                    <p>Find the perfect candidate with our powerful search filters.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Real-time Notifications</h3>
+                    <p>Get instant updates on candidate applications and status changes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Track your hiring metrics and make data-driven decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Left Side - Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>Plot No 35, 2nd Floor,<br>Vishal Nagar, Sector 3,<br>Gurugram, Haryana 122001</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Number</h3>
+                            <p>+91 9999 000 999<br>+91 9999 000 888</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p>info@graphura.com<br>support@graphura.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Have Questions?</h3>
+                            <p>We're here to help and answer any question you might have. We look forward to hearing from you.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Map -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.450803648842!2d77.0726!3d28.4726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d192e8a8a1c1f%3A0x9b9b9b9b9b9b9b9b9!2sGraphura%20India%20Private%20Limited!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>ResumeAI</h3>
+                    <p>Transforming the recruitment process with AI-powered resume shortlisting and candidate matching.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#jobs">Recent Jobs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for the latest updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ResumeAI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+    <!-- Login/Signup Popup HTML -->
+    <div id="overlay" class="overlay" onclick="closePopup()"></div>
+
+    <!-- LOGIN POPUP -->
+    <div id="loginPopup" class="popup">
+        <span class="close" onclick="closePopup()">×</span>
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <p id="loginMsg" class="message"></p>
+        <button class="btn" onclick="login()">Login</button>
+
+        <p>Don't have an account?  
+            <a href="#" class="switch-link" data-target="signupPopup">Signup</a>
+        </p>
+    </div>
+
+    <!-- SIGNUP POPUP -->
+    <div id="signupPopup" class="popup">
+        <span class="close" onclick="closePopup()">×</span>
+        <h2>Create Account</h2>
+        <p class="sub-title">Join our community and start using ResumeAI!</p>
+
+        <input type="text" id="signupName" placeholder="Full Name" required>
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <p id="signupMsg" class="message"></p>
+        <button class="btn" onclick="register()">Signup</button>
+
+        <p>Already have an account?  
+            <a href="#" class="switch-link" data-target="loginPopup">Login</a>
+        </p>
+    </div>
+
+    <script>
+        // Function to open login popup
+        function openLogin() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('loginPopup').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to open signup popup
+        function openSignup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('signupPopup').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close popup
+        function closePopup() {
+            document.querySelectorAll('.popup').forEach(popup => {
+                popup.style.display = 'none';
+            });
+            
+            const overlay = document.querySelector('.overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+            
+            document.body.style.overflow = 'auto';
+        }
+
+        // Show signup popup when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show signup popup on page load
+            openSignup();
+            
+            // Handle switch between login and signup
+            const switchLinks = document.querySelectorAll('.switch-link');
+            
+            switchLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPopup = this.getAttribute('data-target');
+                    
+                    // Hide all popups
+                    document.querySelectorAll('.popup').forEach(popup => {
+                        popup.style.display = 'none';
+                    });
+                    
+                    // Show the target popup
+                    const popup = document.getElementById(targetPopup);
+                    if (popup) {
+                        popup.style.display = 'block';
+                    }
+                });
+            });
+
+            // Close popup with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closePopup();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
